@@ -1,0 +1,11 @@
+USE [master]
+GO
+
+CREATE LOGIN [Viewer] WITH PASSWORD=N'Tigrou007', DEFAULT_DATABASE=[examenJuin], CHECK_EXPIRATION=ON, CHECK_POLICY=ON
+GO
+
+USE [examenJuin]
+GO
+CREATE USER [Viewer] FOR LOGIN [Viewer] WITH DEFAULT_SCHEMA=[dbo]
+ALTER ROLE [db_datareader] ADD MEMBER [Viewer]
+GO
